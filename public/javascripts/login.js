@@ -13,8 +13,8 @@ function validatePassword() {
         document.getElementById("password").type = "password"
         document.getElementById("email").value = tempEmail;
     } else {
-        document.getElementById("f1").action = "login.php"
-        document.getElementById("make-pwd-visible").checked = false
+        document.getElementById("f1").action = "/logged-in";
+        document.getElementById("make-pwd-visible").checked = false;
         document.getElementById("submit-button").click();
     }
 }

@@ -37,20 +37,9 @@ function validateAndSendInput() {
         window.alert("Your entered password does not match with the reconfirmed password.")
     }
     if (sendInput) {
-        var email = document.getElementById("email").value;
-        var pwd = document.getElementById("password").value;
-        const data = { email, pwd };
-        options = {
-            method : "POST",
-            headers : {
-                'Content-Type' : 'application/json'
-            },
-            body : JSON.stringify(data)
-        };
-        fetch('/api', options);
-        // document.getElementById("f1").action = "create_acc.php"  //?????
-        // document.getElementById("submit-button").onclick = null
-        // document.getElementById("submit-button").click()
+        document.getElementById("f1").action = "/acct-creation"
+        document.getElementById("submit-button").onclick = null
+        document.getElementById("submit-button").click()
     }
     else {
         var tempEmail = document.getElementById("email").value
