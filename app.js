@@ -49,7 +49,8 @@ app.post('/acct-creation', (req, res) => {
     var date = new Date().toISOString().slice(0,10);
     var stmt = `INSERT INTO USER (EMAIL, PASSWORD, ACCT_CREATION_DATE, LAST_ACTIVE_DATE) VALUES ("${req.body.email}", "${req.body.password}", "${date}", "${date}")`;
     conn.query(stmt, (err, result) => {
-        if(err) 
+        if(err) {
+            console.log(err);
             if(err.message.includes('ER_DUP_ENTRY')) {
                 // send a page which has login and create account links
                 res.send(
@@ -59,12 +60,17 @@ app.post('/acct-creation', (req, res) => {
                     `
                 );
             }
+        }
         else {
             // send a new page after account creation asking for other details of the user
-            res.send("Your account has been successfully created!");
+            res.sendFile(path.resolve('public','more_info.html'));
         }
     });
 });
+
+app.post('/postinfo', (req, res) => {
+    var stmt = `UPDATE `
+})
 
 app.post('/logged-in', (req, res) => {
     var stmt = `SELECT EMAIL,PASSWORD FROM USER WHERE EMAIL="${req.body.email}"`;
