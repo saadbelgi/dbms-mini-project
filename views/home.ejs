@@ -14,29 +14,23 @@
     <!-- <script src="javascripts/login.js"></script> -->
 
     <header>
-        <h1>Logged in to your account!</h1>
+        <h1>Welcome <%=F_NAME+" "+M_NAME+" "+L_NAME%>!</h1>
     </header>
 
     <hr>
 
     <main>
-        Your account details:
-        <p>
-            Email: <%= email %>
-        </p>
-        <p>
-            Password: <%= password %>
-        </p>
+        
     </main>
 
     <hr>
 
     <footer>
         <p>
-            Want to use another account? <a href="login">Login here</a>
+            Want to use another account? <a href="/login">Login here</a>
         </p>
         <p>
-            Want to create a new account? <a href="create">Create one here</a>
+            Want to create a new account? <a href="/create">Create one here</a>
         </p>
     </footer>
 

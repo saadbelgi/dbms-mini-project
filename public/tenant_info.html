@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="TENANT INFO!!">
+    <title>TENANT INFO!</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Please consider providing us more details about yourself so we can serve you better!</h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <form method="post" id="f1" action="/post-tenant-info">
+            <p>
+                <label for="max_rent">What is the maximum rent you can afford (in Rs.)?: </label>
+                <input type="number" name="max_rent" id="max_rent" min="0" step="100" required autofocus>
+            </p>
+            <p>
+                <label for="max_no_of_roommates">What is the maximum number of roommates you can rent a house with? :</label>
+                <input type="number" name="max_no_of_roommates" min="0" step="1" value="0" id="max_no_of_roommates">
+            </p>
+            <p>
+                <label for="marital_status">Marital status: </label><br>
+                <input type="radio" value="1" name="marital_status" id="marital_status"> Married<br>
+                <input type="radio" value="0" name="marital_status" id="marital_status"> Unmarried / divorcee / widow / widower<br>
+            </p>
+            <p>
+                <label for="food_habit">Are you a vegetarian or non-vegetarian? :</label><br>
+                <input type="radio" value="1" name="food_habit" id="food_habit"> Vegetarian<br>
+                <input type="radio" value="0" name="food_habit" id="food_habit"> Non-vegetarian<br>
+            </p>
+            <input type="submit" value="Submit" id="submit-button">
+            <input type="reset" id="reset-button" value="Clear response">
+        </form>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>

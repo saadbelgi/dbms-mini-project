@@ -3,13 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="CREATE ACCOUNT">
-    <title>CREATE ACCOUNT</title>
+    <meta name="description" content="PROVIDE INFO!!">
+    <title>MORE INFO!</title>
     <link rel="stylesheet" href="stylesheets/style.css" />
     <link rel="icon" href="images/icon.png" type="image/x-icon" />
 </head>
 
 <body>
+
+    <script>
+        window.phone_div_id = 101;
+        function addContact() {
+            var temp = document.getElementById(window.phone_div_id);
+            window.phone_div_id++;
+            temp.innerHTML = `<input type='tel' pattern='[7-9]{1}[0-9]{9}' name='phoneno'><br><br><div id='${window.phone_div_id}'></div>`;
+        }
+    </script>
 
     <header>
         <h1>Please consider providing us more details about yourself so we can serve you better!</h1>
@@ -21,7 +30,7 @@
         <form method="post" id="f1" action="/postinfo">
             <p>
                 <label for="f_name">First name:</label>
-                <input type="text" name="f_name" id="f_name" autofocus>
+                <input type="text" name="f_name" id="f_name" required autofocus>
             </p>
             <p>
                 <label for="m_name">Middle name:</label>
@@ -29,13 +38,13 @@
             </p>
             <p>
                 <label for="l_name">Last name:</label>
-                <input type="text" name="l_name" id="m_name">
+                <input type="text" name="l_name" id="m_name" required>
             </p>
             <p>
                 <label for="dob">Date of birth:</label>
-                <input type="date" name="dob" id="dob" >
+                <input type="date" name="dob" id="dob" required>
             </p>
-            <p> 
+            <p>
                 <label for="gender">Gender:</label>
                 <select name="gender" id="gender">
                     <option value="MALE">Male</option>
@@ -95,7 +104,21 @@
             </p>
             <p>
                 <label for="pincode">Pincode:</label>
-                <input type="text" name="pinocde" id="pincode" pattern="[1-9]{1}[0-9]{5}">
+                <input type="text" name="pincode" id="pincode" pattern="[1-9]{1}[0-9]{5}">
+            </p>
+            <p>
+                <label for="phoneno">Contact Number: </label>
+                <input type='tel' pattern='[7-9]{1}[0-9]{9}' name="phoneno" id="no"> 
+                <input type="button" value="ADD ANOTHER NUMBER" id="add" onclick="javascript:addContact();">
+                <div id="101"></div>
+            </p>
+            <p>
+                <label for="category">Your purpose of using this website: </label>
+                <select name="category" id="category" required>
+                    <option value="1">To rent a house</option>
+                    <option value="2">To buy a house</option>
+                    <option value="3">To rent out or sell my house(s)</option>
+                </select>
             </p>
             <input type="submit" value="Submit" id="submit-button">
             <input type="reset" id="reset-button" value="Clear response">
@@ -103,7 +126,6 @@
     </main>
 
     <footer>
-        <p>Have an account already? <a href="login.html">Login here</a></p>
     </footer>
 
 </body>

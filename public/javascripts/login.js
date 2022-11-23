@@ -26,3 +26,4 @@ function togglePasswordVisibility() {
         x.type = "password";
     }
 }
+

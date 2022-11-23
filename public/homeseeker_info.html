@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HOMESEEKER INFO!">
+    <title>HOMESEEKER INFO!</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Please consider providing us more details about your house preferences so we can serve you better!</h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <form method="post" id="f1" action="/post-homeseeker-info">
+            <p>
+                <label for="preferred_city">Preferred city (for renting/buying a house):</label>
+                <input type="text" name="preferred_city" id="preferred_city" autofocus>
+            </p>
+            <p>
+                <label for="preferred_area">Preferred area:</label>
+                <input type="text" name="preferred_area" id="preferred_area">
+            </p>
+            <p>
+                <label for="preferred_house_type">Preferred house type:</label><br>
+                <input type="radio" name="preferred_house_type" value="FLAT" id="preferred_house_type">Flat<br>
+                <input type="radio" name="preferred_house_type" value="FLAT" id="preferred_house_type">Bungalow<br>
+            </p>
+            <p>
+                <label for="preferred_floor">Preferred floor if any:</label>
+                <input type="number" name="preferred_floor" min="0" id="preferred_floor">
+            </p>
+            <p>
+                <label for="preferred_size">Preferred minimum size of house (in sq. ft.):</label>
+                <input type="number" name="preferred_size" min="0" id="preferred_size">
+            </p>
+            <p>
+                <label for="no_of_rooms">Minimum number of rooms required:</label>
+                <input type="number" name="no_of_rooms" min="0" value="0" id="no_of_rooms">
+            </p>
+            <p>
+                <label for="prefers_pet_allowance">Do you want pets to be strictly allowed in the house?:</label><br>
+                <input type="radio" name="prefers_pet_allowance" value="1" id="prefers_pet_allowance">Yes<br>
+                <input type="radio" name="prefers_pet_allowance" value="0" id="prefers_pet_allowance">No<br>
+            </p>
+            <p>
+                <label for="preferred_furnishing_status">Preferred furnishing status:</label><br>
+                <input type="radio" name="preferred_furnishing_status" value="FURNISHED" id="preferred_furnishing_status">Fully furnished<br>
+                <input type="radio" name="preferred_furnishing_status" value="SEMIFURNISHED" id="preferred_furnishing_status">Semifurnished<br>
+                <input type="radio" name="preferred_furnishing_status" value="UNFURNISHED" id="preferred_furnishing_status">Completely Unfurnished<br>
+            </p>
+            <p>
+                <label for="no_of_parking_spaces">Minimum number of parking spaces required:</label>
+                <input type="number" name="no_of_parking_spaces" min="0" value="0" id="no_of_parking_spaces">
+            </p>
+            <input type="submit" value="Submit" id="submit-button">
+            <input type="reset" id="reset-button" value="Clear response">
+        </form>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>
