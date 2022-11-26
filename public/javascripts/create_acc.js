@@ -25,7 +25,7 @@ function validateAndSendInput() {
             if (special_chars != null) {
                 for (let x of special_chars) {
                     if (!spec_arr.includes(x)) {
-                        window.alert("Password contains an illegal special character: " + x + "\nRefer the note on the page for the list of allowed special characters.")
+                        window.alert("Password contains an illegal special character: " + x + "\nOnly following special charaters are allowed:\n! @ # $ % ^ & * / < > = , \ ' \" ? . ; : _ - +")
                         sendInput = false
                         break;
                     }

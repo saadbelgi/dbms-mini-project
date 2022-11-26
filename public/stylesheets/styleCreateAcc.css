@@ -1,0 +1,106 @@
+body{
+    font-family: sans-serif;
+    background-image: url(homepage.webp);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.container{
+    width: 380px;
+    height: 430px;
+    margin:7% auto;
+    border-radius: 25px;
+    background-color: rgba(236, 244, 166, 0.15);
+    box-shadow: 0 0 17px #333;
+}
+
+.header{
+    text-align: center;
+    padding-top: 75px;
+}
+.header h1{
+    color: #333;
+    font-size: 35px;
+    margin-bottom: 35px;
+    margin-top: -20px;
+    font-style: normal;
+}
+.main{
+    text-align: center;
+}
+.main input{
+    width: 200px;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.main #submit-button{
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    background-color: #83acf1;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+.main #reset-button{
+    width: 100px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    background-color: #83acf1;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+.main button:hover{
+    box-shadow: 2px 2px 5px #555;
+    background-color: #7799d4;
+}
+
+.main input:hover{
+    box-shadow: 2px 2px 5px #555;
+    background-color: #ddd;
+}
+
+.main span{
+    position: relative;
+}
+
+.main i{
+    position: absolute;
+    left: 15px;
+    color: #333;
+    font-size: 16px;
+    top: 2px;
+}
+
+.footer{
+    text-align: center;
+    margin-top: -10px;
+    margin-left: 10px;
+}
+
+
+/*.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% -50px);
+}*/

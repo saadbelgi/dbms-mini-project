@@ -4,8 +4,8 @@
     "private": true,
     "scripts": {
         "start": "node ./bin/www",
-        "devstart": "nodemon ./bin/www",
-        "serverstart": "DEBUG=dbms_fe:* npm run devstart"
+        "devstart": "nodemon -e js,html,css,ejs",
+        "serverstart": "DEBUG=dbms_express:* npm run devstart"
     },
     "dependencies": {
         "cookie-parser": "~1.4.4",
