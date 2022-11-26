@@ -5,7 +5,9 @@ var conn = require('../database');
 router.post('/', (req, res, next) => {
     (async () => {
         try {
-            await conn.query(`UPDATE TENANT SET MAX_PRICE=${req.body.max_rent} WHERE USER_ID=${req.session.user_id};`);
+            var stmt = `INSERT INTO HOMEOWNER VALUES(${req.session.user_id},"${req.body.govt_id_type}","${req.body.govt_id_number}")`
+            console.log(stmt)
+            await conn.query(stmt);
             res.redirect('/login');
         } catch (err) {
             console.log(err.message);

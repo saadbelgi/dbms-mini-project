@@ -11,8 +11,6 @@ app.listen(3000, () => console.log('Listening at 3000'));
 
 
 
-
-
 // setting the view engine
 app.set('view engine', 'ejs');
 

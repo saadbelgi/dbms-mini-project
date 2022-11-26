@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
             else {
                 await conn.query(`INSERT INTO USER_PHONE_NO VALUES(${req.session.user_id},"${req.body.phoneno}");`);
             }
-            var table = req.body.category == 1 ? 'TENANT' : (req.body.category == 2 ? 'BUYER' : 'HOMEOWNER');
+            var table = req.body.category == 1 ? 'TENANT' : 'BUYER';
             await conn.query(`INSERT INTO ${table} (USER_ID) VALUES(${req.session.user_id})`);
             if (req.body.category != 3) {
                 await conn.query(`INSERT INTO HOMESEEKER (USER_ID) VALUES(${req.session.user_id})`);
