@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="PROVIDE INFO!!">
+    <title>BUYER INFO!!</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
+</head>
+
+<body>
+
+    <header>
+        <h1>Please consider providing us more details about your house preferences so we can serve you better!</h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <form method="post" id="f1" action="/post-buyer-info">
+            <p>
+                <label for="max_price">Maximum price you are willing to pay for a house: </label>
+                <input type="number" name="max_price" id="max_price" value="0" autofocus>
+            </p>
+            <input type="submit" value="Submit" id="submit-button">
+            <input type="reset" id="reset-button" value="Clear response">
+        </form>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>

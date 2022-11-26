@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HOMEOWNER INFO!">
+    <title>HOMEOWNER INFO!</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
+    <script src="javascripts/owner_info.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>To register on this site as a homeowner, you need to provide a government ID</h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <form method="post" id="f1">
+            <p>
+                <label for="govt_id_type">Government ID type:</label><br>
+                <input type="radio" name="govt_id_type" id="1" value="AADHAR" required onclick="changeLabelTag(1)">Aadhar<br>
+                <input type="radio" name="govt_id_type" id="2" value="PAN" onclick="changeLabelTag(2)">Pan<br>
+                <input type="radio" name="govt_id_type" id="3" value="VOTER ID" onclick="changeLabelTag(3)">Voter ID<br>
+                <input type="radio" name="govt_id_type" id="4" value="DRIVING LICENSE" onclick="changeLabelTag(4)">Driving license<br>
+            </p>
+            <p>
+                <label for="govt_id_number" style="visibility:hidden" id="5"></label>
+                <input type="text" name="govt_id_number" id="govt_id_number" style="visibility:hidden" required>
+            </p>
+            <input type="submit" value="Submit" id="submit-button" onclick="validateInput()">
+            <input type="reset" id="reset-button" value="Clear response">
+        </form>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>

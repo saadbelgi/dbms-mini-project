@@ -49,7 +49,8 @@ var acct_creation = require('./routes/acct-creation')
 var post_info = require('./routes/postinfo')
 var post_homeseeker_info = require('./routes/post-homeseeker-info')
 var post_tenant_info = require('./routes/post-tenant-info')
-
+var post_buyer_info = require('./routes/post-buyer-info')
+var post_homeowner_info = require('./routes/post-homeowner-info')
 
 // routing middleware
 app.use('/', index)
@@ -65,6 +66,8 @@ app.use('/acct-creation', acct_creation)
 app.use('/postinfo', post_info)
 app.use('/post-homeseeker-info',post_homeseeker_info)
 app.use('/post-tenant-info', post_tenant_info)
+app.use('/post-buyer-info', post_buyer_info)
+app.use('/post-homeowner-info',post_homeowner_info)
 
 // handling 404 requests
 app.all('*', (req, res) => {
