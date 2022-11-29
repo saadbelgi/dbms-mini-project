@@ -1,14 +1,19 @@
+/*login page*/
+
 body{
     font-family: sans-serif;
-    background-image: url(../images/backOfCreateaccount.webp);
+    background-image: url(../images/backOfLogin.jpg);
     background-repeat: no-repeat;
     overflow: hidden;
     background-size: cover;
 }
 
+
+
+
 .container{
-    width: 380px;
-    height: 430px;
+    width: 300px;
+    height: 320px;
     margin:7% auto;
     border-radius: 25px;
     background-color: rgba(236, 244, 166, 0.15);
@@ -19,16 +24,21 @@ body{
     text-align: center;
     padding-top: 75px;
 }
+
 .header h1{
     color: #333;
     font-size: 35px;
-    margin-bottom: 35px;
-    margin-top: -20px;
+    margin-bottom: 30px;
+    margin-top: -30px;
     font-style: normal;
 }
+
+
+
 .main{
     text-align: center;
 }
+
 .main input{
     width: 200px;
     height: 30px;
@@ -38,39 +48,47 @@ body{
     box-sizing: border-box;
     font-size: 15px;
     color: #333;
-    margin-bottom: 10px;
-    margin-top: 5px;
+    margin-bottom: 20px;
+    margin-top: 0px;
 }
-.main #submit-button{
+
+#checkbox123 input{
+    width: 15px !important;
+    height: 15px;
+    border: none;
+    top: -10px;
+    outline: none;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+#checkbox123 label{
+    height: 10px !important;
+    position:relative;
+    top: 0px;
+}
+
+
+.main button{
     width: 100px;
     height: 30px;
     padding: 0;
+    position: relative;
+    top: -10px;
     border: none;
     outline: none;
-    position: relative;
-    top: -25px;
     border-radius: 1rem;
     background-color: #83acf1;
     letter-spacing: 1px;
     font-weight: bold;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
-.main #reset-button{
-    width: 100px;
-    height: 30px;
-    padding: 0;
-    border: none;
-    outline: none;
-    position: relative;
-    top: -25px;
-    border-radius: 1rem;
-    background-color: #83acf1;
-    letter-spacing: 1px;
-    font-weight: bold;
-    margin-top: 3px;
-    margin-bottom: 10px;
-}
+
 .main button:hover{
     box-shadow: 2px 2px 5px #555;
     background-color: #7799d4;
@@ -93,39 +111,12 @@ body{
     top: 2px;
 }
 
-#checkbox123 input{
-    width: 15px !important;
-    height: 15px;
-    border: none;
-    top: -10px;
-    outline: none;
-    padding-left: 10px;
-    box-sizing: border-box;
-    font-size: 15px;
-    color: #333;
-    margin-bottom: 20px;
-    margin-top: 0px;
-}
-
-#checkbox123 label{
-    height: 10px !important;
-    position:relative;
-    font-weight: bold;
-    top: 0px;
-}
-
-.footer {
+.footer{
+    position: relative;
+    top: -15px;
     text-align: center;
-    position: relative;
-    color: #333;
-    background: none;
-    font-weight: bold;
-    position: relative;
-    top: -10px;
-    margin-top: -10px;
-    margin-left: 10px;
+    margin-top: -40px;
 }
-
 
 /*.avatar{
     width: 100px;

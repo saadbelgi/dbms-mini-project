@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Rent info!!">
+    <title>RENT INFO!</title>
+    <link rel="stylesheet" href="stylesheets/default.css" />
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
+</head>
+
+<body>
+
+    <header>
+        <h1>More information required to post your property!</h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <form method="post" id="f1" action="/post-rent-info">
+            <p>
+                <label for="monthly_rent">Monthly rent:</label>
+                <input type="number" name="monthly_rent" id="monthly_rent" min="1" required>
+            </p>
+            <p>
+                <label for="max_no_of_tenants">Maximum number of tenants you would allow to rent your house:</label>
+                <input type="number" name="max_no_of_tenants" id="max_no_of_tenants" min="1">
+            </p>
+            <p>
+                <label for="tenant_marital_status">Preferred marital status of tenant (if any):</label><br>
+                <input type="radio" name="tenant_marital_status" id="tenant_marital_status" value="1">Married<br>
+                <input type="radio" name="tenant_marital_status" id="tenant_marital_status" value="0">Unmarried<br>
+            </p>
+            <p>
+                <label for="tenant_food_habit">Preferred dietary habit of tenant (if any):</label><br>
+                <input type="radio" name="tenant_food_habit" id="tenant_food_habit" value="1">Vegetarian<br>
+                <input type="radio" name="tenant_food_habit" id="tenant_food_habit" value="0">Non Vegetarian<br>
+            </p>
+            <p>
+                <label for="security_deposit_amount">Estimated security deposit amount:</label>
+                <input type="number" name="security_deposit_amount" id="security_deposit_amount" min="0">
+            </p>
+            <input type="submit" value="Submit" id="submit-button">
+            <input type="reset" id="reset-button" value="Clear response">
+        </form>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>

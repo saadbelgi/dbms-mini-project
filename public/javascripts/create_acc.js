@@ -1,7 +1,7 @@
 function validateAndSendInput() {
 
     // unchecking show password checkbox and hiding password text
-    document.getElementById("show-pwd").checked = false
+    document.getElementById("make-pwd-visible").checked = false
     document.getElementById("password").type = "password"
     document.getElementById("reconfirm").type = "password"
 

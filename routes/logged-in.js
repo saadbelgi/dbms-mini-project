@@ -3,7 +3,7 @@ var router = express.Router();
 var conn = require('../database');
 
 router.post('/', (req, res, next) => {
-    var stmt = `SELECT F_NAME,M_NAME,L_NAME,USER_ID,EMAIL,PASSWORD FROM USER WHERE EMAIL="${req.body.email}"`;
+    var stmt = `SELECT F_NAME,M_NAME,L_NAME,USER_ID,EMAIL,PASSWORD,CATEGORY FROM USER WHERE EMAIL="${req.body.email}"`;
     (async () => {
         try {
             var result = await conn.query(stmt);
@@ -13,7 +13,28 @@ router.post('/', (req, res, next) => {
             }
             else if (result[0].PASSWORD == req.body.password) {
                 req.session.user_id = result[0].USER_ID;
-                res.render('home.ejs', result[0]);
+                if (result[0].CATEGORY == 3) {
+                    var houses, on_rent, on_sale;
+                    (async () => {
+                        houses = await conn.query(`SELECT * FROM HOUSE WHERE OWNER_ID=${req.session.user_id}`);
+                        console.log(houses)
+                        for (let i = 0; i < houses.length; i++) {
+                            if (houses[i].CATEGORY == 1) {
+                                on_rent = await conn.query(`SELECT * FROM RENT WHERE HOUSE_ID = ${houses[i].HOUSE_ID}`);
+                                houses[i] = Object.assign(houses[i], on_rent[0])
+                            }
+                            else {
+                                on_sale = await conn.query(`SELECT * FROM SALE WHERE HOUSE_ID = ${houses[i].HOUSE_ID}`);
+                                houses[i] = Object.assign(houses[i], on_sale[0])
+                            }
+                        }
+                        var data = { user: result[0], houses: houses }
+                        res.render('home.ejs', data)
+                    })();
+                }
+                else {
+                    res.render('home.ejs', result[0]);
+                }
             }
             else {
                 // might have to changE this

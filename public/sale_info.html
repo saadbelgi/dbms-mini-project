@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Sale info!!">
+    <title>SALE INFO!</title>
+    <link rel="stylesheet" href="stylesheets/default.css" />
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
+</head>
+
+<body>
+
+    <header>
+        <h1>More information required to post your property!</h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <form method="post" id="f1" action="/post-sale-info">
+            <p>
+                <label for="total_price">Estimated selling price: </label>
+                <input type="number" name="total_price" id="total_price" min="0" required>
+            </p>
+            <p>
+                <label for="token_amount">Estimated token amount:</label>
+                <input type="number" name="token_amount" id="token_amount" min="0">
+            </p>
+            <input type="submit" value="Submit" id="submit-button">
+            <input type="reset" id="reset-button" value="Clear response">
+        </form>
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>

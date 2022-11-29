@@ -5,44 +5,47 @@
     <meta charset="UTF-8" />
     <meta name="description" content="LOGIN PAGE" />
     <title>LOGIN</title>
-    <link rel="stylesheet" href="stylesheets/style.css" />
+
+    <link rel="stylesheet" type="text/css" href="fontawesome/css/all.min.css">
+
     <link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/styleLogin.css">
 </head>
 
 <body>
 
     <script src="javascripts/login.js"></script>
 
-    <header>
-        <h1>Log in to your account!</h1>
-    </header>
-
-    <hr>
-
-    <main>
-        <form method="post" id="f1">
-            <p>
-                <label for="email">E-Mail ID: </label>
-                <input type="email" name="email" id="email" autocomplete="on" required autofocus>
-            </p>
-            <p>
-                <label for="password">Password: </label>
-                <input type="password" name="password" maxlength="20" minlength="8" id="password" required>
-                <br>
-                <input type="checkbox" name="make-pwd-visible" id="make-pwd-visible"
-                    onclick="togglePasswordVisibility()">
-                <label for="make-password-visible">Show password</label>
-            </p>
-            <input type="submit" value="Submit" name="submit" id="submit-button" onclick="validatePassword()">
-            <input type="reset" id="reset-button" style="display:none">
-    </main>
-
-    <hr>
-
-    <footer>
-        <p>Don't have an account? <a href="/create">Create one</a></p>
-        <input type="submit" id="createbutton" style="display:none" formaction="/create">
-    </footer>
+    <div class="container">
+        <div class="header">
+            <h1>Login</h1>
+        </div>
+        <div class="main">
+            <form method="post" id="f1">
+                <span>
+                    <i class="fa fa-user"></i>
+                    <input type="email" placeholder="E-mail id" name="email" id="email" autocomplete="on" required
+                        autofocus>
+                </span><br>
+                <span>
+                    <i class="fa fa-lock"></i>
+                    <input type="password" placeholder="Password" name="password" maxlength="20" minlength="8"
+                        id="password" required>
+                </span><br>
+                <span id="checkbox123">
+                    <input type="checkbox" name="make-pwd-visible" id="make-pwd-visible"
+                        onclick="togglePasswordVisibility()">
+                    <label for="make-password-visible">Show password</label>
+                </span><br>
+                <button type="submit" name="submit" onclick="validatePassword()" id="submit-button"
+                    form="f1">Login</button>
+            </form>
+        </div>
+        <div class="footer">
+            <p>Don't have an account? <a href="/create">Create one!</a></p>
+        </div>
+    </div>
 
 </body>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="description" content="LOGIN PAGE" />
     <title>LOGIN</title>
-    <link rel="stylesheet" href="stylesheets/style.css"/>
+    <link rel="stylesheet" href="stylesheets/default.css"/>
     <link rel="icon" href="images/icon.png" type="image/x-icon" />
 </head>
 
@@ -14,13 +14,33 @@
     <!-- <script src="javascripts/login.js"></script> -->
 
     <header>
-        <h1>Welcome <%=F_NAME+" "+M_NAME+" "+L_NAME%>!</h1>
+        <h1>Welcome <%=user.F_NAME%> <% if (user.M_NAME) { %><%= user.M_NAME %><% } %> <%=user.L_NAME%>!</h1>
     </header>
 
     <hr>
 
     <main>
-        
+        <% if(user.CATEGORY == 3) { %>
+            <br><a href="/house-info">Post your property here!</a><br><br><br>
+            <% if(houses.length > 0) {%>
+                <h2>Your houses registered on our website:</h2><br>
+            <% } else { %>
+                <h2>You have not registered any house on our website.</h2><br>
+            <% } %>
+            <% for(var x of houses) { %>
+                <% for(var p in x) { %>
+                    <%if(x[p] && p!='HOUSE_ID' && p!='OWNER_ID' && p!='CATEGORY') { %>
+                        <p><%=p%> : <%=x[p]%></p>
+                    <% } %>
+                <% } %>
+                <form method="post" action="/update-house-info">
+                    <input type="number" name="category" style="display:none" value="<%=x['CATEGORY']%>">
+                    <button type="submit" value="<%=x['HOUSE_ID']%>" name="house_id">Edit info</button>
+                    <button type="submit" formaction="/delete-house" formmethod="post" name="house_id" value="<%=x['HOUSE_ID']%>">Delete</button>
+                </form>
+                <br><br>
+            <% } %>
+        <% } %>
     </main>
 
     <hr>

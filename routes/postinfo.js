@@ -3,7 +3,7 @@ var router = express.Router();
 var conn = require('../database');
 
 router.post('/', (req, res) => {
-    var stmt = `UPDATE USER SET F_NAME="${req.body.f_name}", M_NAME="${req.body.m_name}", L_NAME="${req.body.l_name}", DOB="${req.body.dob}", GENDER="${req.body.gender}", STATE="${req.body.state}", CITY="${req.body.city}", AREA="${req.body.area}", PINCODE="${req.body.pincode}", CATEGORY=${req.body.category} WHERE USER_ID=${req.session.user_id};`;
+    var stmt = `UPDATE USER SET F_NAME="${req.body.f_name}", L_NAME="${req.body.l_name}", DOB="${req.body.dob}", GENDER="${req.body.gender}", STATE="${req.body.state}", CITY="${req.body.city}", AREA="${req.body.area}", PINCODE="${req.body.pincode}", CATEGORY=${req.body.category} WHERE USER_ID=${req.session.user_id};`;
     (async () => {
         try {
             await conn.query(stmt);
