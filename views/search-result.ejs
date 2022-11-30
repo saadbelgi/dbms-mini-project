@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Post property!">
+    <title>SEARCH RESULTS!</title>
+    <link rel="stylesheet" href="stylesheets/default.css" />
+    <link rel="icon" href="images/icon.png" type="image/x-icon" />
+</head>
+
+<body>
+    <style>
+        .houses {
+            border-color: blueviolet;
+            border-width: 100px;
+            
+        }
+    </style>
+    <header>
+        <h1>Search result!</h1>
+    </header>
+
+    <hr>
+
+    <main>
+        <% if(locals.rent || locals.sale) { %>
+            <h2>Results of your previous search:</h2><br><br>
+            <%if(locals.rent) { %>
+                <div class="houses">
+                <% for(var x of rent) { %>
+                    <% for(var p in x) { %>
+                        <%if(x[p] && p!='HOUSE_ID' && p!='OWNER_ID' && p!='CATEGORY') { %>
+                            <p><%=p%> : <%=x[p]%></p>
+                        <% } %>
+                    <% } %>
+                    <br><br>
+                <% } %>
+                </div>
+            <% } if(locals.sale) { %>
+                <div class="houses">
+                <% for(var x of sale) { %>
+                    <% for(var p in x) { %>
+                        <%if(x[p] && p!='HOUSE_ID' && p!='OWNER_ID' && p!='CATEGORY') { %>
+                            <p><%=p%> : <%=x[p]%></p>
+                        <% } %>
+                    <% } %>
+                    <br><br>
+                <% } %>
+                </div>
+            <% } %>
+        <% }  else { %>
+            <h2>Your search did not produce any result :(</h2>
+        <% } %>
+    </main>
+
+    <footer>
+        <p>
+            <a href="/search">Go back to search page</a>
+        </p>
+    </footer>
+
+</body>
+
+</html>

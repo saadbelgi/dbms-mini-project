@@ -1,9 +1,17 @@
 body {
     padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #DEFCF9;
+    background-image: url("../images/home-interior-mockup-white-wall-background-3d-render_269031-346.webp");
+    background-size: cover;
+    /* background-opacity: 0.5; */
   }
   
   a {
     color: #00B7FF;
+    /* color: white; */
+
   }
+
+
   

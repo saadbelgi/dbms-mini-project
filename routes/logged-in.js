@@ -33,7 +33,49 @@ router.post('/', (req, res, next) => {
                     })();
                 }
                 else {
-                    res.render('home.ejs', result[0]);
+                    (async () => {
+                        var stmt = `SELECT * FROM HOMESEEKER WHERE USER_ID=${result[0].USER_ID}`;
+                        var stmt2;
+                        if(result[0].CATEGORY == 1) {
+                            stmt2 = `SELECT * FROM TENANT WHERE USER_ID=${result[0].USER_ID}`;
+                        }
+                        else {
+                            stmt2 = `SELECT * FROM BUYER WHERE USER_ID=${result[0].USER_ID}`;
+                        }
+                        var temp1 = await conn.query(stmt);
+                        var temp2 = await conn.query(stmt2);
+                        console.log(stmt);
+                        console.log(stmt2);
+                        console.log(temp1);
+                        console.log(temp2);
+                        var temp3, stmt3;
+                        if(result[0].CATEGORY == 1) {
+                            stmt3 = `SELECT * FROM HOUSE NATURAL JOIN RENT WHERE ${temp1[0].PREFERRED_CITY ? `CITY="`+temp1[0].PREFERRED_CITY+`"` : ``} ${temp1[0].PREFERRED_AREA ? `AND AREA="`+temp1[0].PREFERRED_AREA+`"` : ``} ${temp1[0].PREFERRED_HOUSE_TYPE ? `AND TYPE="`+temp1[0].PREFERRED_HOUSE_TYPE+`"` : ``} ${temp1[0].PREFERRED_SIZE ? `AND SIZE>=`+temp1[0].PREFERRED_SIZE : ``} ${temp1[0].PREFERS_PET_ALLOWANCE ? `AND PET_ALLOWANCE=`+temp1[0].PREFERS_PET_ALLOWANCE : ``}  ${temp1[0].PREFERRED_SIZE ? `AND SIZE>=`+temp1[0].PREFERRED_SIZE : ``} ${temp1[0].NO_OF_ROOMS ? `AND NO_OF_ROOMS>=`+temp1[0].NO_OF_ROOMS : ``} ${temp1[0].PREFERRED_FURNISHING_STATUS ? `AND FURNISHING_STATUS="`+temp1[0].PREFERRED_FURNISHING_STATUS+`"` : ``} ${temp1[0].NO_OF_PARKING_SPACES ? `AND NO_OF_PARKING_SPACES>=`+temp1[0].NO_OF_PARKING_SPACES : ``} ${temp2[0].MAX_RENT ? `AND MONTHLY_RENT<=`+temp2[0].MAX_RENT : ``} ${temp2[0].MARITAL_STATUS ? `AND TENANT_MARITAL_STATUS=`+temp2[0].MARITAL_STATUS : ``} ${temp2[0].FOOD_HABIT ? `AND TENANT_FOOD_HABIT=`+temp2[0].FOOD_HABIT : ``} AND 1=1`;
+                            if (stmt3.search(/WHERE\s*AND/) != -1) {
+                                let idx = stmt3.search(/AND/);
+                                let firstPart = stmt3.substring(0, idx);
+                                let lastPart = stmt3.substring(idx + 3);
+                                stmt3 = firstPart + lastPart;
+                            }
+                            console.log(stmt3);
+                            temp3 = await conn.query(stmt3);
+                            var data = {user: result[0], houses: temp3};
+                            res.render('home.ejs', data);
+                        }
+                        else {
+                            stmt3 = `SELECT * FROM HOUSE NATURAL JOIN SALE WHERE ${temp1[0].PREFERRED_CITY ? `CITY="`+temp1[0].PREFERRED_CITY+`"` : ``} ${temp1[0].PREFERRED_AREA ? `AND AREA="`+temp1[0].PREFERRED_AREA+`"` : ``} ${temp1[0].PREFERRED_HOUSE_TYPE ? `AND TYPE="`+temp1[0].PREFERRED_HOUSE_TYPE+`"` : ``} ${temp1[0].PREFERRED_SIZE ? `AND SIZE>=`+temp1[0].PREFERRED_SIZE : ``} ${temp1[0].PREFERS_PET_ALLOWANCE ? `AND PET_ALLOWANCE=`+temp1[0].PREFERS_PET_ALLOWANCE : ``}  ${temp1[0].PREFERRED_SIZE ? `AND SIZE>=`+temp1[0].PREFERRED_SIZE : ``} ${temp1[0].NO_OF_ROOMS ? `AND NO_OF_ROOMS>=`+temp1[0].NO_OF_ROOMS : ``} ${temp1[0].PREFERRED_FURNISHING_STATUS ? `AND FURNISHING_STATUS="`+temp1[0].PREFERRED_FURNISHING_STATUS+`"` : ``} ${temp1[0].NO_OF_PARKING_SPACES ? `AND NO_OF_PARKING_SPACES>=`+temp1[0].NO_OF_PARKING_SPACES : ``} ${temp2[0].MAX_PRICE ? `AND TOTAL_PRICE<=`+temp2[0].MAX_PRICE : ``} AND 1=1`;
+                            if (stmt3.search(/WHERE\s*AND/) != -1) {
+                                let idx = stmt3.search(/AND/);
+                                let firstPart = stmt3.substring(0, idx);
+                                let lastPart = stmt3.substring(idx + 3);
+                                stmt3 = firstPart + lastPart;
+                            }
+                            console.log(stmt3);
+                            temp3 = await conn.query(stmt3);
+                            var data = {user: result[0], houses: temp3};
+                            res.render('home.ejs', data);
+                        }
+                    })();
                 }
             }
             else {

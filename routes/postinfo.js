@@ -3,13 +3,17 @@ var router = express.Router();
 var conn = require('../database');
 
 router.post('/', (req, res) => {
-    var stmt = `UPDATE USER SET F_NAME="${req.body.f_name}", L_NAME="${req.body.l_name}", DOB="${req.body.dob}", GENDER="${req.body.gender}", STATE="${req.body.state}", CITY="${req.body.city}", AREA="${req.body.area}", PINCODE="${req.body.pincode}", CATEGORY=${req.body.category} WHERE USER_ID=${req.session.user_id};`;
+    var stmt = `UPDATE USER SET F_NAME="${req.body.f_name}", L_NAME="${req.body.l_name}", DOB="${req.body.dob}", GENDER=NULLIF("${req.body.gender}",""), STATE=NULLIF("${req.body.state}",""), CITY=NULLIF("${req.body.city}",""), AREA=NULLIF("${req.body.area}",""), PINCODE=NULLIF("${req.body.pincode}",""), CATEGORY=${req.body.category} WHERE USER_ID=${req.session.user_id};`;
     (async () => {
         try {
             await conn.query(stmt);
-            if (Array.isArray(req.body.phoneno)) {
-                for (var phno of req.body.phoneno) {
-                    await conn.query(`INSERT INTO USER_PHONE_NO VALUES(${req.session.user_id},"${phno}");`);
+            
+            if(req.body.phoneno) {
+                if (Array.isArray(req.body.phoneno)) {
+                    console.log(req.body.phoneno)
+                    for (var phno of req.body.phoneno) {
+                        await conn.query(`INSERT INTO USER_PHONE_NO VALUES(${req.session.user_id},"${phno}");`);
+                    }
                 }
             }
             else {

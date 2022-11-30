@@ -58,6 +58,8 @@ var post_sale_info = require('./routes/post-sale-info')
 var delete_house = require('./routes/delete-house')
 var update_house_info = require('./routes/update-house-info')
 var actual_updation_of_house_info = require('./routes/actual-updation-of-house-info')
+var search = require('./routes/search')
+var post_search = require('./routes/post-search')
 
 // routing middleware
 app.use('/', index)
@@ -84,6 +86,8 @@ app.use('/post-sale-info',post_sale_info)
 app.use('/delete-house', delete_house)
 app.use('/update-house-info',update_house_info)
 app.use('/actual-updation-of-house-info',actual_updation_of_house_info)
+app.use('/search', search)
+app.use('/post-search', post_search)
 
 // handling 404 requests
 app.all('*', (req, res) => {
